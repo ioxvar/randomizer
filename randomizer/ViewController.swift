@@ -20,10 +20,20 @@ class ViewController: UIViewController {
       let button = UIButton()
         button.backgroundColor = .white
         button.setTitle("Generate random image", for: .normal)
-        button.setTitleColor(.systemBlue, for: .normal)
+        button.setTitleColor(.black, for: .normal)
         return button
     }()
 
+    let backgroundColors: [UIColor] = [
+        .systemBlue,
+        .systemMint,
+        .systemGray,
+        .systemOrange,
+        .systemRed,
+        .systemCyan,
+        .systemPink,
+        .systemTeal
+    ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +50,8 @@ class ViewController: UIViewController {
     
     @objc func onTap() {
         getRandomisedPhoto()
+        
+        view.backgroundColor = backgroundColors.randomElement()
     }
     
     override func viewDidLayoutSubviews() {
