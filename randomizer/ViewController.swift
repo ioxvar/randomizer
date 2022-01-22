@@ -15,6 +15,14 @@ class ViewController: UIViewController {
         imageView.backgroundColor = .systemBlue
       return imageView
     }()
+    
+    private let button: UIButton = {
+      let button = UIButton()
+        button.backgroundColor = .white
+        button.setTitle("Generate random image", for: .normal)
+        button.setTitleColor(.systemGray, for: .normal)
+        return button
+    }()
 
 
     override func viewDidLoad() {
@@ -24,7 +32,25 @@ class ViewController: UIViewController {
         imageView.frame = CGRect(x: 0, y: 0, width: 300, height: 300)
         imageView.center = view.center
         
+        view.addSubview(button)
         getRandomisedPhoto()
+        
+        button.addTarget(self, action: #selector(onTap), for: .touchUpInside)
+    }
+    
+    @objc func onTap() {
+        getRandomisedPhoto()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        button.frame = CGRect(
+            x: 30,
+            y: view.frame.size.height-150-view.safeAreaInsets.bottom,
+            width: view.frame.size.width-60,
+            height: 50
+        )
     }
     
     func getRandomisedPhoto(){
