@@ -20,7 +20,7 @@ class ViewController: UIViewController {
       let button = UIButton()
         button.backgroundColor = .white
         button.setTitle("Generate random image", for: .normal)
-        button.setTitleColor(.systemGray, for: .normal)
+        button.setTitleColor(.systemBlue, for: .normal)
         return button
     }()
 
